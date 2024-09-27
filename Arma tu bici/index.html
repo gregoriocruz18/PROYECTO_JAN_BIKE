@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arma tu propia bicicleta</title>
+    
+    <link rel="stylesheet" href="../css/diseño.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: gray;
+        }
+
+        header {
+            background-color: #D7FF00;
+            color: white;
+            text-align: center;
+            padding: 10px 10;
+        }
+
+        #bikePreview {
+    width: 60px; /* Ancho del div */
+    height: 50px; /* Alto del div */
+    border: 1px solid #000; /* Borde para visualizar el div */
+    overflow: hidden; /* Oculta el contenido que se desborda */
+    display: flex; /* Usar flexbox para centrar el contenido */
+    justify-content: center; /* Centra horizontalmente el contenido */
+    align-items: center; /* Centra verticalmente el contenido */
+    text-align: center; /* Alinea el texto al centro */
+}
+
+#bikePreview p {
+    margin: 0; /* Elimina márgenes del párrafo */
+    font-size: 14px; /* Tamaño de fuente ajustable */
+}
+    </style>
+    
+</head>
+<body>
+    <header>
+        <img src="../logo/Imagen1.png" width="186" height="40" alt="Logo">
+    </header>
+
+<h1>Arma tu propia bicicleta</h1>
+
+<div class="container">
+    <div>
+        <div class="component">
+            <label for="frame" >Cuadro:</label>
+            <select id="frame">
+                <option value="cuadro1.png">Cuadro 1</option>
+                <option value="cuadro2.png">Cuadro 2</option>
+                <option value="cuadro3.png">Cuadro 3</option>
+            </select>
+        </div>
+        <div class="component">
+            <label for="fork">Horquilla:</label>
+            <select id="fork">
+                <option value="suspe1.png">Horquilla 1</option>
+                <option value="suspe2.png">Horquilla 2</option>
+                <option value="suspe3.png">Horquilla 3</option>
+            </select>
+        </div>
+        <div class="component" >
+            <label for="seat">Asiento:</label>
+            <select id="seat">
+                <option value="seat1.png">Asiento 1</option>
+                <option value="seat2.png">Asiento 2</option>
+                <option value="seat3.png">Asiento 3</option>
+            </select>
+        </div>
+    </div>
+
+    <div border="1" id="bikePreview"></div>
+</div>
+
+<script>
+// Función para actualizar la vista previa de la bicicleta
+function updateBikePreview() {
+    const frame = document.getElementById('frame').value;
+    const fork = document.getElementById('fork').value;
+    const seat = document.getElementById('seat').value;
+
+    const bikePreview = document.getElementById('bikePreview');
+    
+    // Limpiar el contenedor
+    bikePreview.style.backgroundImage = `url('')`; // Imagen base
+
+    // Añadir las imágenes seleccionadas
+    if (frame) {
+        const frameImg = document.createElement('img');
+        frameImg.src = frame;
+        frameImg.style.position = 'absolute';
+        frameImg.style.top = '0'; // Ajusta según sea necesario
+        frameImg.style.left = '0'; // Ajusta según sea necesario
+        bikePreview.appendChild(frameImg);
+    }
+
+    if (fork) {
+        const forkImg = document.createElement('img');
+        forkImg.src = fork;
+        forkImg.style.position = 'absolute';
+        forkImg.style.top = '50px'; // Ajusta según sea necesario
+        forkImg.style.left = '50px'; // Ajusta según sea necesario
+        bikePreview.appendChild(forkImg);
+    }
+
+    if (seat) {
+        const seatImg = document.createElement('img');
+        seatImg.src = seat;
+        seatImg.style.position = 'absolute';
+        seatImg.style.top = '200px'; // Ajusta según sea necesario
+        seatImg.style.left = '50px'; // Ajusta según sea necesario
+        bikePreview.appendChild(seatImg);
+    }
+}
+
+// Agregar eventos a los selectores
+document.getElementById('frame').addEventListener('change', updateBikePreview);
+document.getElementById('fork').addEventListener('change', updateBikePreview);
+document.getElementById('seat').addEventListener('change', updateBikePreview);
+</script>
+
+</body>
+</html>

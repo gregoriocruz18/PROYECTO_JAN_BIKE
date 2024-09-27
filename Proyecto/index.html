@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jan Bike</title>
+    <link rel="stylesheet" href="diseño.css" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: gray;
+        }
+
+        header {
+            background-color: #D7FF00;
+            color: white;
+            text-align: center;
+            padding: 10px 10;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+        }
+
+        nav a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 200px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: #262626;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        section {
+            padding: 20px;
+            margin: 10px;
+            border: 1px solid #ccc;
+        }
+
+
+        .content {
+            display: flex;
+            justify-content: space-between;
+            /* Espacio entre descripción y carrusel */
+            padding: 20px;
+        }
+
+        .description {
+            width: 50%;
+            /* Ajusta el ancho según sea necesario */
+        }
+
+        .carousel-container {
+            width: 35%;
+            /* Ajusta el ancho del carrusel */
+            position: relative;
+            /* Para posicionar las imágenes */
+            overflow: hidden;
+            /* Oculta las imágenes que no están en vista */
+            height: 300px;
+            /* Altura fija para el contenedor */
+        }
+
+        .carousel-images img {
+            width: 100%;
+            /* Ajusta el ancho de la imagen al contenedor */
+            height: 100%;
+            /* Ajusta la altura de la imagen al contenedor */
+            object-fit: cover;
+            /* Ajusta la imagen para que cubra el área sin distorsionarse */
+            display: none;
+            /* Oculta todas las imágenes inicialmente */
+        }
+
+        .carousel-images img.active {
+            display: block;
+            /* Muestra solo la imagen activa */
+        }
+
+        .container {
+            padding: 20px;
+            /* Espaciado alrededor */
+        }
+
+        iframe {
+            width: 500px;
+            /* Ancho del iframe */
+            height: 400px;
+            /* Alto del iframe */
+            border: 0;
+            /* Sin borde */
+            margin-left: auto;
+            /* Empujar hacia la derecha */
+            display: block;
+            /* Asegurarse de que el margen funcione */
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <img src="../logo/Imagen1.png" width="186" height="40">
+        <!--<img src="imagenes/img_1.jpeg" alt="Imagen 1">-->
+
+    </header>
+
+   
+    <nav>
+        <div class="dropdown">
+            <a href="#">Bicicletas</a>
+            <div class="dropdown-content">
+                <a href="#">Bicicletas de Montaña</a>
+                <a href="#">Bicicletas de Ruta</a>
+                <a href="#">Bicicletas BMX</a>
+                <a href="#">Bicicletas Infantiles</a>
+                <a href="#">Bicicletas Recreativas</a>
+            </div>
+        </div>
+    
+        <div class="dropdown">
+            <a href="#">Componentes</a>
+            <div class="dropdown-content">
+                <a href="#">Cuadros</a>
+                <a href="#">Horquillas</a>
+                <a href="#">Mazas</a>
+                <a href="#">Rines</a>
+                <a href="#">Llanta</a>
+                <a href="#">Mandos</a>
+                <a href="#">Cambio trasero</a>
+                <a href="#">Bielas</a>
+                <a href="#">Eje centro</a>
+                <a href="#">Cassette</a>
+                <a href="#">Rueda libre</a>
+                <a href="#">Asientos</a>
+                <a href="#">Poste de asiento</a>
+                <a href="#">Manubrio</a>
+                <a href="#">Poste de manubrio</a>
+                <a href="#">Puños</a>
+                <a href="#">Juego de dirección</a>
+                <a href="#">Transmisiones</a>
+                <a href="#">Frenos</a>
+                <a href="#">Rotor de freno</a>
+                <a href="#">Ruedas</a>
+            </div>
+        </div>
+    
+        <div class="dropdown">
+            <a href="#">Refacciones</a>
+            <div class="dropdown-content">
+                <a href="#">Cadena</a>
+                <a href="#">Pastillas de freno</a>
+                <a href="#">Gomas de freno</a>
+                <a href="#">Cámaras</a>
+                <a href="#">Parcheo</a> <!-- Corregido "parches" a "parcheo" -->
+                <a href="#">Chicotes</a>
+            </div>
+        </div>
+    
+        <!-- Accesorios -->
+        <div class="dropdown">
+            <a href="#">Accesorios</a>
+            <div class="dropdown-content">
+                <a href="#">Cascos</a>
+                <a href="#">Candados</a>
+                <a href="#">Portaequipajes</a>
+                <a href="#">Bolsas y Alforjas</a>
+                <a href="#">Bidones y Portabidones</a>
+                <a href="#">Luces</a>
+                <a href="#">Ciclocomputadores y GPS</a>
+            </div>
+        </div>
+    
+        <!-- Ropa y Calzado -->
+        <div class="dropdown">
+            <a href="#">Ropa y Calzado</a>
+            <div class="dropdown-content">
+                                <a href="#">Zapatillas</a>
+                <a href="#">Camisetas y Maillots</a>
+                <a href="#">Pantalones y Culotes</a>
+                <a href="#">Chaquetas y Chalecos</a>
+                <a href="#">Guantes</a>
+                <a href="#">Calcetines</a>
+
+
+            </div> 
+        </div>
+    
+        <!-- Servicio de Taller -->
+        <div class="dropdown">
+            <a href="#">Servicio de Taller</а> 
+            <div class="dropdown-content"> 
+                               
+                 <a href="#">Reparación de Bicicletas</a>
+                 <a href="#">Mantenimiento Preventivo</a>
+                 <a href="#">Ajuste de Componentes</a>
+                 <a href="#">Personalización de Bicicletas</a>
+                 <a href="#">Lavado y Limpieza</a>
+                 <a href="#">Diagnóstico y Presupuestos</a>
+
+
+             </div> 
+         </div>
+    
+         <!-- Arma tu propia bici -->
+         <!-- Colocado correctamente en la jerarquía del menú -->
+         <div class="dropdown">
+            <a href="#">Arma tu propia bici</a>
+                          <div class="dropdown-content">
+                 <!-- Subcategoría para armar la bicicleta -->
+                 
+                    <a href="../Arma tu bici/index.html">Comenzar</a>
+             </div >
+         </div>
+    
+         <!-- Información y Consejos -->
+    <div class="dropdown">
+             <a hrеf="#">Información y Consejos</а>
+             <div class="dropdown-content">
+             <a hrеf="#">Guías de Compra</а>
+                 <a hrеf="#">Consejos de Mantenimiento</а>
+                 <a hrеf="#">Noticias y Eventos</а>
+                 <a hrеf="#">Reseñas de Productos</а>
+                 <a hrеf="#">Preguntas Frecuentes</а>
+             </div >
+         </div>
+    
+         <!-- Nutrición -->
+         <div class="dropdown">
+             <a hrеf="#">Nutrición</а>
+             <div class="dropdown-content">
+                 <a hrеf="#">Geles</а>
+                 <a hrеf="#">Barritas</а>
+             </div >
+         </div>
+    
+         <!-- Asegúrate de cerrar todas las etiquetas correctamente -->
+     </nav>
+    
+
+
+
+    <section id="descripcion" class="content">
+        <div class="description">
+            <h2>Descripción de la Empresa</h2>
+            <p>Jan Bike es su tienda de confianza para todas las necesidades relacionadas con bicicletas. Ofrecemos una
+                amplia gama de bicicletas y accesorios para ciclistas de todos los niveles.</p>
+        </div>
+
+        <div class="carousel-container">
+            <div class="carousel-images" id="carouselImages">
+                <img src="../imagenes/img_1.jpeg" alt="Imagen 1">
+                <img src="../imagenes/img_2.png" alt="Imagen 2">
+                <img src="../imagenes/img_3.jpeg" alt="Imagen 3">
+                <img src="../imagenes/img_4.jpeg" alt="Imagen 4">
+            </div>
+        </div>
+    </section>
+
+
+    <section id="eventos">
+        <h2>Próximos Eventos</h2>
+        <ul>
+            <li>Carrera de Montaña - 15 de octubre de 2024</li>
+            <li>Taller de Mantenimiento - 22 de octubre de 2024</li>
+        </ul>
+    </section>
+
+    <section id="productos-nuevos">
+        <h2>Productos Nuevos</h2>
+        <p>¡Descubre nuestras últimas bicicletas y accesorios que han llegado a la tienda!</p>
+    </section>
+
+    <section id="eventos">
+        <h2>Próximos Eventos</h2>
+        <ul>
+            <li>Carrera de Montaña - 15 de octubre de 2024</li>
+            <li>Taller de Mantenimiento - 22 de octubre de 2024</li>
+        </ul>
+    </section>
+
+    <section id="ubicacion">
+        <table>
+            <tr>
+                <td>
+                    <!-- Aquí puedes agregar contenido adicional si es necesario -->
+                    <h2>Donde nos ubicamos</h2>
+                    <p>Visítanos en nuestra tienda para ver los mejores productos y servicios.</p>
+                    <p>estamos ubicados sobre la calle XEW, en frente de la farmacia similaeres, a unod metros de la
+                        parada de los tamarindos</p>
+                </td>
+                <td style="text-align: right;"> <!-- Alinear a la derecha -->
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3718.6259132990704!2d-98.7810130261362!3d21.24667778026089!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d6ea77d34ea0bf%3A0x32c7e760b274166d!2sBicicletas%20Jan!5e0!3m2!1ses!2smx!4v1727145030324!5m2!1ses!2smx"
+                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </td>
+            </tr>
+        </table>
+
+    </section>
+
+
+    <!-- Aquí puedes agregar más contenido como productos destacados, promociones, etc. -->
+
+    <footer style="text-align:center; padding:20px; background-color:#333; color:white;">
+        &copy; 2024 Jan Bike
+    </footer>
+
+
+    <script>
+        const images = document.querySelectorAll('#carouselImages img'); // Obtener todas las imágenes
+        let currentIndex = 0;
+
+        function showNextImage() {
+            images[currentIndex].classList.remove('active'); // Ocultar la imagen actual
+            currentIndex = (currentIndex + 1) % images.length; // Incrementar el índice
+            images[currentIndex].classList.add('active'); // Mostrar la siguiente imagen
+        }
+
+        setInterval(showNextImage, 3000); // Cambiar imagen cada 3 segundos
+    </script>
+</body>
+
+</html>

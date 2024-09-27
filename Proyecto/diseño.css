@@ -1,0 +1,28 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #D7FF00;
+  color: white;
+  text-align: center;
+  padding: 10px 10;
+}
+
+#bikePreview {
+  width: 100px; /* Ancho del div */
+  height: 50px; /* Alto del div */
+  border: 1px solid #000; /* Borde para visualizar el div */
+  overflow: hidden; /* Oculta el contenido que se desborda */
+  display: flex; /* Usar flexbox para centrar el contenido */
+  justify-content: center; /* Centra horizontalmente el contenido */
+  align-items: center; /* Centra verticalmente el contenido */
+  text-align: center; /* Alinea el texto al centro */
+}
+
+#bikePreview p {
+  margin: 0; /* Elimina márgenes del párrafo */
+  font-size: 14px; /* Tamaño de fuente ajustable */
+}
