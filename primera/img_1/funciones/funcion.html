@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jean Bike Store - Categorías</title>
+    <style>
+        /* Estilo para la barra de navegación */
+        nav {
+            background-color: #28a745;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        nav a {
+            color: white;
+            font-size: 1.2rem;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            color: #d7ff00;
+        }
+
+        /* Dropdown */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        /* Mostrar el contenido del dropdown cuando se pasa el cursor */
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Estilo para mostrar la categoría seleccionada */
+        #selectedCategory {
+            margin-top: 20px;
+            font-size: 1.5rem;
+            color: #28a745;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Barra de navegación -->
+    <nav>
+        <div class="dropdown">
+            <a href="#">Bicicletas</a>
+            <div class="dropdown-content">
+                <a href="#">Bicicletas de Montaña</a>
+                <a href="#">Bicicletas de Ruta</a>
+                <a href="#">Bicicletas BMX</a>
+                <a href="#">Bicicletas Infantiles</a>
+                <a href="#">Bicicletas Recreativas</a>
+            </div>
+        </div>
+
+        <div class="dropdown">
+            <a href="#">Componentes</a>
+            <div class="dropdown-content">
+                <a href="#">Cuadros</a>
+                <a href="#">Horquillas</a>
+                <a href="#">Mazas</a>
+                <a href="#">Rines</a>
+            </div>
+        </div>
+
+        <div class="dropdown">
+            <a href="#">Accesorios</a>
+            <div class="dropdown-content">
+                <a href="#">Cascos</a>
+                <a href="#">Candados</a>
+                <a href="#">Portaequipajes</a>
+                <a href="#">Luces</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sección donde se mostrará la categoría seleccionada -->
+    <div id="selectedCategory">
+        Selecciona una categoría de la barra superior.
+    </div>
+
+    <script>
+        // Función para seleccionar categoría y aplicar la acción
+        function selectCategory(category) {
+            // Realiza la acción cuando se selecciona una categoría
+            alert("Seleccionaste la categoría: " + category);
+            
+            // Aquí puedes personalizar lo que sucederá, como cambiar el contenido de una sección de la página
+            document.getElementById('selectedCategory').innerText = "Has seleccionado: " + category;
+        }
+
+        // Asignar la función a los enlaces de las categorías
+        document.querySelectorAll('.dropdown-content a').forEach(item => {
+            item.addEventListener('click', function(event) {
+                event.preventDefault(); // Evita que el enlace redirija la página
+                const category = this.innerText;
+                selectCategory(category); // Llama a la función con el nombre de la categoría
+            });
+        });
+    </script>
+
+</body>
+</html>
